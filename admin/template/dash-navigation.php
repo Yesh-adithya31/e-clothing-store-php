@@ -65,4 +65,13 @@
             <span class="nav-link-text ms-1">Variations</span>
         </a>
     </li>
+    <li class="nav-item">
+        <a <?php if ($selectedItem == 'variation-options') echo 'class="active bg-gradient-secondary nav-link text-white"';
+            else echo 'class="nav-link text-white"' ?> href="variations-options.php">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="material-icons opacity-10">toggle_on</i>
+            </div>
+            <span class="nav-link-text ms-1">Variation Options</span>
+        </a>
+    </li>
 </ul>

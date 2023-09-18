@@ -1,52 +1,40 @@
+<?php
+$selectedVal = "";
+switch ($selectedItem) {
+    case 'home':
+        $selectedVal = 'Dashboard';
+        break;
+
+    case 'user':
+        $selectedVal = 'User';
+        break;
+
+    case 'category':
+        $selectedVal = 'Category';
+        break;
+
+    case 'variations':
+        $selectedVal = 'Variations';
+        break;
+
+    case 'variation-options':
+        $selectedVal = 'Variation Options';
+        break;
+
+    default:
+        $selectedVal = 'Dashboard';
+} ?>
 <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
     <div class="container-fluid py-1 px-3">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
                 <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
                 <li class="breadcrumb-item text-sm text-dark active" aria-current="page">
-                    <?php switch ($selectedItem) {
-                        case 'home':
-                            echo 'Dashboard';
-                            break;
-
-                        case 'user':
-                            echo 'User';
-                            break;
-
-                        case 'category':
-                            echo 'Category';
-                            break;
-
-                        case 'variations':
-                            echo 'Variations';
-                            break;
-
-                        default:
-                            echo 'Dashboard';
-                    } ?>
+                    <?php echo $selectedVal; ?>
                 </li>
             </ol>
             <h6 class="font-weight-bolder mb-0">
-                <?php switch ($selectedItem) {
-                    case 'home':
-                        echo 'Dashboard';
-                        break;
-
-                    case 'user':
-                        echo 'User';
-                        break;
-
-                    case 'category':
-                        echo 'Category';
-                        break;
-
-                    case 'variations':
-                        echo 'Variations';
-                        break;
-
-                    default:
-                        echo 'Dashboard';
-                } ?>
+                <?php echo $selectedVal; ?>
             </h6>
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">

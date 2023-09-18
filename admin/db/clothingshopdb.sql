@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `admin` (
 --
 
 INSERT INTO `admin` (`id`, `username`, `email`, `password`) VALUES
-(1, 'admin', 'admin@mejiwo.com', '2ecf97aca8b441b323b133d8fc061845');
+(1, 'admin', 'admin@theknot.com', '2ecf97aca8b441b323b133d8fc061845');
 
 -- --------------------------------------------------------
 

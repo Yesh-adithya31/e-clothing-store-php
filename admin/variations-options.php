@@ -1,6 +1,6 @@
 <?php
 // Set the selected item based on the current page
-$selectedItem = 'variations';
+$selectedItem = 'variation-options';
 ?>
 <?php include('template/header.php'); ?>
 
@@ -17,10 +17,10 @@ $selectedItem = 'variations';
                         <div class="card-body p-3">
                             <div class="row">
                                 <div class="col-6 d-flex align-items-center">
-                                    <h6 class="mb-0">Manage Variations Details</h6>
+                                    <h6 class="mb-0">Manage Variation Options Details</h6>
                                 </div>
                                 <div class="col-6 text-end">
-                                    <a class="btn bg-gradient-dark mb-0 fixed-plugin-btn" href="javascript:;"><i class="material-icons text-sm">add</i>&nbsp;&nbsp;Add New Variation</a>
+                                    <a class="btn bg-gradient-dark mb-0 fixed-plugin-btn" href="javascript:;"><i class="material-icons text-sm">add</i>&nbsp;&nbsp;Add New Variation Option</a>
                                 </div>
                             </div>
                         </div>
@@ -40,7 +40,7 @@ $selectedItem = 'variations';
         </div>
 
         <!-- SIDE-DRAWER -->
-        <?php include('template/side-drawers/variation-drawer.php'); ?>
+        <?php include('template/side-drawers/variationOptions-drawer.php'); ?>
         <!-- END SIDE-DRAWER -->
         <?php include('template/dash-foot.php'); ?>
         </div>
@@ -74,14 +74,14 @@ $selectedItem = 'variations';
             });
         }
 
-        $('#variationForm').on('submit', function(event) {
-            // Prevent the default form submission behavior
-            event.preventDefault();
-            // Call the createCategory function
-            createVariation();
-        });
+        // $('#variationForm').on('submit', function(event) {
+        //     // Prevent the default form submission behavior
+        //     event.preventDefault();
+        //     // Call the createCategory function
+        //     createVariation();
+        // });
 
-        $('select[name="category_id"]').on('change', function() {
+        $('select[name="variation_id"]').on('change', function() {
             // Get the selected option
             var selectedOption = $(this).find('option:selected');
         });
@@ -135,7 +135,7 @@ $selectedItem = 'variations';
                 type: 'POST', // Use GET or POST as appropriate
                 dataType: 'json',
                 success: function(data) {
-                    var select = $('#category_id');
+                    var select = $('#variation_id');
 
                     // Loop through the API response data and add options to the select element
                     $.each(data, function(index, category) {

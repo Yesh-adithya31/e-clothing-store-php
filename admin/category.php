@@ -58,7 +58,7 @@ $selectedItem = 'category';
                 error: function(error) {
                     Swal.fire({
                         title: 'Success!',
-                        text: r.message,
+                        text: error,
                         icon: 'success',
                     });
                     dt.ajax.reload();

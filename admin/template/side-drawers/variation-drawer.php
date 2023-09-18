@@ -17,22 +17,22 @@
             <form id="variationForm" role="form" method="POST" >
                 <div class="input-group input-group-outline mb-3">
                     <!-- <label class="form-label">Category Name</label> -->
-                    <select id="categorySelect" class="form-control" required>
+                    <select id="category_id" name="category_id" class="form-control" required>
                         <option class="form-label" value="">Category Name</option>
                     </select>
                 </div>
                 <div class="input-group input-group-outline mb-3">
                     <label class="form-label">Variation Name</label>
-                    <input name="variation_name" type="text" class="form-control" requiredz>
+                    <input name="variation_name" type="text" class="form-control" required>
+                </div>
+                <div class="position-absolute bottom-0">
+                    <hr class="horizontal dark my-sm-4">
+                    <div class="d-grid gap-2 d-md-flex">
+                        <button type="reset" class="btn btn-outline-danger col-10">Cancel</button>
+                        <button type="submit" class="btn bg-gradient-dark col-10">Save</button>
+                    </div>
                 </div>
             </form>
-            <div class="position-absolute bottom-0">
-                <hr class="horizontal dark my-sm-4">
-                <div class="d-grid gap-2 d-md-flex">
-                    <button type="reset" class="btn btn-outline-danger col-10">Cancel</button>
-                    <button type="submit" class="btn bg-gradient-dark col-10">Save</button>
-                </div>
-            </div>
         </div>
     </div>
 </div>

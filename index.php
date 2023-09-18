@@ -11,7 +11,7 @@
       name="author"
       content="Yesh Adithya, Sanduni Ranawaka, Dilki Fernando, Wathsala"
     />
-    <title>MEJIWO</title>
+    <title>The KNOT</title>
     <!-- CSS(Bootstrap) links -->
     <link
       rel="stylesheet"
@@ -69,7 +69,7 @@
               <a
                 class="blog-header-logo text-body-emphasis text-decoration-none"
                 href="#"
-                >MEJIWOO</a
+                >The KNOT</a
               >
             </div>
             <form class="d-flex" role="search">
@@ -1077,7 +1077,7 @@
               <div class="d-flex justify-content-center text-center text-black">
                 <div>
                   <p class="fw-bold fs-1 mt-4">
-                    Get more benefits <br />by Sign Up & Join <br />Mejiwoo
+                    Get more benefits <br />by Sign Up & Join <br />The KNOT
                     Community!
                   </p>
                   <p class="fs-5">◆ FREE Special Gift to a new member</p>
@@ -1116,7 +1116,7 @@
                 <a
                   class="blog-header-logo text-body-emphasis text-decoration-none"
                   href="#"
-                  >MEJIWOO</a
+                  >The KNOT</a
                 >
               </li>
             </ul>
