@@ -16,7 +16,7 @@ if (isset($_POST['login_action'])) {
 
         if ($user) {
             $_SESSION['email'] = $user['email'];
-            $_SESSION['username'] = $username;
+            $_SESSION['username'] = $user['username'];
             $_SESSION['success'] = "You are now logged in";
             header('location: home.php');
         } else {

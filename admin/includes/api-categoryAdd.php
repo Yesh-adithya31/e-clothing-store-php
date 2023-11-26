@@ -6,7 +6,7 @@ $response = "";
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $conn = $pdo->open();
 
-    $categoryname =  $_POST['category_name'];
+    $categoryname =  $_POST['categoryname'];
 
     try {
         $stmt = $conn->prepare("INSERT INTO category(category_name, is_Deleted) VALUES(:cat_name,0)");

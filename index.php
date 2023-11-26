@@ -12,6 +12,7 @@
       content="Yesh Adithya, Sanduni Ranawaka, Dilki Fernando, Wathsala"
     />
     <title>The KNOT</title>
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico" />
     <!-- CSS(Bootstrap) links -->
     <link
       rel="stylesheet"
@@ -69,7 +70,7 @@
               <a
                 class="blog-header-logo text-body-emphasis text-decoration-none"
                 href="#"
-                >The KNOT</a
+                ><img src="assets/images/logo-lg.png" style="transform: scale(3.5); height: 50px;" alt="" /></a
               >
             </div>
             <form class="d-flex" role="search">

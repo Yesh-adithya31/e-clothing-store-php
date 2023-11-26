@@ -6,8 +6,8 @@ $response = "";
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $conn = $pdo->open();
 
-    $variationname =  $_POST['variation_name'];
-    $cat_id =  $_POST['category_id'];
+    $variationname =  $_POST['variantName'];
+    $cat_id =  $_POST['cmbCategory'];
 
     try {
         $stmt = $conn->prepare("INSERT INTO variation(category_id, name) VALUES(:cat_id,:var_name)");
