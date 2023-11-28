@@ -1,3 +1,10 @@
+<?php include('includes/login.php'); ?>
+<!-- <?php 
+if (isset($_SESSION["email"])) {
+  header("location: index.php"); // Redirect to the login page if not logged in
+  exit;
+}
+?> -->
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -13,7 +20,7 @@
 </head>
 
 <body>
-<?php include('template/header.php'); ?>
+    <?php include('template/header.php'); ?>
 
     <!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-option">
@@ -37,20 +44,30 @@
     <section class="checkout spad">
         <div class="container">
             <div class="checkout__form">
-                <form action="#">
+                <form action="signin.php" method="post">
                     <div class="row">
                         <div class="col-lg-3 col-md-6"></div>
                         <div class="col-lg-6 col-md-6">
                             <h6 class="checkout__title">Sign In</h6>
+                            <?php
+                            if (isset($_SESSION['error'])) {
+                                echo "
+                                    <div class='alert bg-danger text-white text-bold'>
+                                        " . $_SESSION['error'] . "
+                                    </div>
+                                ";
+                                unset($_SESSION['error']);
+                            }
+                            ?>
                             <div class="checkout__input">
                                 <p>E-mail</p>
-                                <input type="text" id="email" name="email">
+                                <input type="text" id="email" name="email" required>
                             </div>
                             <div class="checkout__input">
                                 <p>Account Password<span>*</span></p>
-                                <input type="text" id="password" name="password">
+                                <input type="text" id="password" name="password" required>
                             </div>
-                            <button type="submit" class="site-btn">LOGIN IN</button>
+                            <button type="submit" name="login_action"  class="site-btn">LOGIN IN</button>
                         </div>
                         <div class="col-lg-3 col-md-6"></div>
                     </div>

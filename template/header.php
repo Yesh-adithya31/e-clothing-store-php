@@ -14,12 +14,15 @@
         </div>
         <div class="offcanvas__nav__option">
             <a href="#"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
-            <div class="price">$0.00</div>
+            <div class="price">LKR0.00</div>
         </div>
         <div id="mobile-menu-wrap"></div>
     </div>
     <!-- Offcanvas Menu End -->
-
+    <!-- if (isset($_SESSION["user"])) {
+    header("location: index.php"); // Redirect to the login page if not logged in
+    exit;
+} -->
     <!-- Header Section Begin -->
     <header class="header">
         <div class="header__top">
@@ -30,8 +33,16 @@
                     <div class="col-lg-6 col-md-5">
                         <div class="header__top__right">
                             <div class="header__top__links">
-                            <a href="signin.php">Sign in</a>
-                            <a href="signup.php">Sign up</a>
+                                <!-- <?php session_start();  ?> -->
+                                <a href="signin.php"><?php
+                                                        if (isset($_SESSION['email'])) {
+                                                            echo $_SESSION['email'];
+                                                            echo '<a href="includes/logout.php">Log out</a>';
+                                                        } else {
+                                                            echo 'Sign in';
+                                                            echo '<a href="signup.php">Sign up</a>';
+                                                        } ?></a>
+  
                             </div>
                         </div>
                     </div>
@@ -48,7 +59,7 @@
                 <div class="col-lg-6 col-md-6">
                     <nav class="header__menu mobile-menu">
                         <ul>
-                            <li class="active"><a href="./index.html">Home</a></li>
+                            <li class="active"><a href="index.php">Home</a></li>
                             <li><a href="./shop.html">Shop</a></li>
                             <li><a href="#">Pages</a>
                                 <ul class="dropdown">
@@ -67,7 +78,7 @@
                 <div class="col-lg-3 col-md-3">
                     <div class="header__nav__option">
                         <a href="#"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
-                        <div class="price">$0.00</div>
+                        <div class="price">LKR0.00</div>
                     </div>
                 </div>
             </div>
