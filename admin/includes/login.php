@@ -18,7 +18,7 @@ if (isset($_POST['login_action'])) {
             $_SESSION['email'] = $user['email'];
             $_SESSION['username'] = $user['username'];
             $_SESSION['success'] = "You are now logged in";
-            header('location: home.php');
+            header('location: productlist.php');
         } else {
             // User not found in the database
             $_SESSION['error'] = "Wrong username/password combination";

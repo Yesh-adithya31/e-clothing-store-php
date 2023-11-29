@@ -211,97 +211,14 @@
 
     <?php include('template/jslinks.php'); ?>
     <script>
-        var user = <?php if (isset($_SESSION["user"])) {
-                        echo $_SESSION["user"];
-                    } else {
-                        echo "00";
-                    } ?>;
-        // console.log(user.user_id);
+        var user = <?php if (isset($_SESSION["user"])) {echo $_SESSION["user"];} else {echo "00";} ?>;
         $(document).ready(function() {
             // Make an AJAX request to fetch product data from the API
-            $.ajax({
-                url: 'includes/productGetAll.php', // Replace with your API endpoint URL
-                method: 'POST',
-                dataType: 'json',
-                success: function(data) {
-                    // Get the container where products will be displayed
-                    var productsContainer = $('#productsContainer');
-                    var filterControls = $('#filter_id');
-
-                    // Loop through the retrieved data and populate the HTML structure
-                    $.each(data, function(index, product) {
-                        // Create a div for each product and set its class and content dynamically
-                        var productItem = $(`<div>`).addClass(`col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix ${product.category_name}`);
-                        var productContent = `
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg">
-                        <img class="product__item__pic set-bg" src="uploads/${product.product_image}"/>
-                            <ul class="product__hover">
-                                <li><a onclick="goToProduct(${product.product_master_id})"><img src="img/icon/compare.png" alt=""> <span>View</span></a></li>
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <h6>${product.product_name}</h6>
-                            <a style="cursor: pointer;" onClick="addToCart(${product.product_master_id})" class="add-cart">+ Add To Cart</a>
-                            <h5>LKR ${product.price}</h5>
-                        </div>
-                    </div>
-                `;
-
-                        // Append the product content to the products container
-                        productItem.append(productContent);
-                        productsContainer.append(productItem);
-
-                        if (!filterControls.find(`[data-filter=".${product.category_name}"]`).length) {
-                            // If not, create a new filter control for this category
-                            var filterItem = $('<li>').attr('data-filter', `.${product.category_name}`).text(product.category_name);
-                            filterControls.append(filterItem);
-                        }
-                    });
-                },
-                error: function(xhr, status, error) {
-                    console.log('Error fetching data:', error);
-                }
-            });
-        });
-
-        function addToCart(id) {
-            // console.log((user.user_id));
-            if(user){
-                $.ajax({
-                    url: 'includes/cartAdd.php',
-                    data: {
-                        productMasterID: id,
-                        userID: user.user_id
-                    },
-                    dataType: 'json',
-                    method: 'POST',
-                    processData: true,
-                    error: function(error) {
-                        Swal.fire({
-                            title: 'Error!',
-                            text: error,
-                            icon: 'error',
-                        });
-                        dt.ajax.reload();
-                    },
-                    success: function(r) {
-                        Swal.fire({
-                            title: 'Success!',
-                            text: r.message,
-                            icon: 'success',
-                        });
-                    }
-                });
-
-            }else{
-                window.location.href = "signin.php";
+            getProducts();
+            if (user) {
+                loadCartCountAndTotalSum(user.user_id);
             }
-        }
-
-        function goToProduct(id) {
-            window.location.href = `product-details.php?id=${id}`;
-        }
+        });
     </script>
 </body>
 

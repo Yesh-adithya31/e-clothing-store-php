@@ -15,7 +15,7 @@ if (isset($_POST['login_action'])) {
         $user = $stmt->fetch();
 
         if ($user) {
-            $_SESSION['email'] = $user['email'];
+            $_SESSION['useremail'] = $user['email'];
             $_SESSION['user'] = json_encode($user);
             $_SESSION['success'] = "You are now logged in";
             header('location: index.php');

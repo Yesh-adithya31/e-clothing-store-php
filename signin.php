@@ -1,10 +1,4 @@
 <?php include('includes/login.php'); ?>
-<!-- <?php 
-if (isset($_SESSION["email"])) {
-  header("location: index.php"); // Redirect to the login page if not logged in
-  exit;
-}
-?> -->
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -61,11 +55,11 @@ if (isset($_SESSION["email"])) {
                             ?>
                             <div class="checkout__input">
                                 <p>E-mail</p>
-                                <input type="text" id="email" name="email" required>
+                                <input type="email" id="email" name="email" required>
                             </div>
                             <div class="checkout__input">
                                 <p>Account Password<span>*</span></p>
-                                <input type="text" id="password" name="password" required>
+                                <input type="password" id="password" name="password" required>
                             </div>
                             <button type="submit" name="login_action"  class="site-btn">LOGIN IN</button>
                         </div>

@@ -2,7 +2,7 @@
 <?php include('includes/login.php'); ?>
 <?php 
 if (isset($_SESSION["email"])) {
-  header("location: home.php"); // Redirect to the login page if not logged in
+  header("location: productlist.php"); // Redirect to the login page if not logged in
   exit;
 }
 ?>

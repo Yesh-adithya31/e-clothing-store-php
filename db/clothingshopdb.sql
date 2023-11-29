@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3309
--- Generation Time: Nov 28, 2023 at 11:59 AM
+-- Generation Time: Nov 29, 2023 at 01:07 AM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `admin` (
 --
 
 INSERT INTO `admin` (`id`, `username`, `email`, `password`) VALUES
-(1, 'admin', 'admin@mejiwo.com', '2ecf97aca8b441b323b133d8fc061845');
+(1, 'admin', 'admin@theknot.com', '2ecf97aca8b441b323b133d8fc061845');
 
 -- --------------------------------------------------------
 
@@ -61,7 +61,19 @@ CREATE TABLE IF NOT EXISTS `bills` (
   PRIMARY KEY (`bill_id`),
   KEY `fk_bills_product_master1_idx` (`product_master_id`),
   KEY `fk_bills_order_details1_idx` (`order_details_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `bills`
+--
+
+INSERT INTO `bills` (`bill_id`, `qty`, `price`, `product_master_id`, `order_details_id`) VALUES
+(1, 1, '4795', 7, 5),
+(2, 1, '3760', 5, 5),
+(3, 1, '2850', 4, 6),
+(4, 1, '3995', 2, 6),
+(5, 1, '3450', 6, 6),
+(6, 1, '3995', 2, 7);
 
 -- --------------------------------------------------------
 
@@ -90,8 +102,32 @@ INSERT INTO `category` (`id`, `category_name`, `is_Deleted`) VALUES
 (6, 'CropTop', 0),
 (7, 'New Category', 0),
 (8, 'Sample 1', 1),
-(9, 'New Category', 0),
+(9, 'New Category', 1),
 (10, 'Bags', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `customrequest`
+--
+
+DROP TABLE IF EXISTS `customrequest`;
+CREATE TABLE IF NOT EXISTS `customrequest` (
+  `custom_req_id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `shipping_address_id` int(11) NOT NULL,
+  `request_note` varchar(500) NOT NULL,
+  `order_status` varchar(55) NOT NULL,
+  PRIMARY KEY (`custom_req_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `customrequest`
+--
+
+INSERT INTO `customrequest` (`custom_req_id`, `user_id`, `shipping_address_id`, `request_note`, `order_status`) VALUES
+(1, 1, 1, ' Give some note', 'Order Plced'),
+(2, 2, 5, ' Make an custom order', 'Order Plced');
 
 -- --------------------------------------------------------
 
@@ -166,17 +202,27 @@ DROP TABLE IF EXISTS `order_details`;
 CREATE TABLE IF NOT EXISTS `order_details` (
   `order_id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
-  `order_date` datetime NOT NULL,
-  `user_payment_method_id` int(11) NOT NULL,
   `shipping_address_id` int(11) NOT NULL,
   `order_status_id` int(11) NOT NULL,
   `order_total` double NOT NULL,
+  `delivery_note` varchar(200) NOT NULL,
+  `order_date` datetime NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`order_id`),
   KEY `fk_purchase_details_user1_idx` (`user_id`),
-  KEY `fk_purchase_details_user_payment_method1_idx` (`user_payment_method_id`),
   KEY `fk_purchase_details_shipping_address1_idx` (`shipping_address_id`),
   KEY `fk_purchase_details_order_status1_idx` (`order_status_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `order_details`
+--
+
+INSERT INTO `order_details` (`order_id`, `user_id`, `shipping_address_id`, `order_status_id`, `order_total`, `delivery_note`, `order_date`) VALUES
+(1, 1, 6, 1, 8555, 'Order wants nrea to hosteal', '2023-11-29 04:39:22'),
+(2, 1, 7, 1, 8555, 'Order wants nrea to hosteal', '2023-11-29 04:39:31'),
+(5, 1, 10, 1, 8555, 'This is order not type', '2023-11-29 04:51:22'),
+(6, 1, 11, 1, 10295, 'This is order not type2', '2023-11-29 04:53:10'),
+(7, 2, 12, 1, 3995, 'This is order not type3', '2023-11-29 04:55:49');
 
 -- --------------------------------------------------------
 
@@ -358,12 +404,22 @@ CREATE TABLE IF NOT EXISTS `shipping_address` (
   `address_line1` varchar(50) NOT NULL,
   `address_line2` varchar(45) NOT NULL,
   `postal_code` varchar(45) NOT NULL,
-  `province_id` int(11) NOT NULL,
-  `district_id` int(11) NOT NULL,
-  PRIMARY KEY (`shipping_add_id`),
-  KEY `fk_address_province1_idx` (`province_id`),
-  KEY `fk_address_district1_idx` (`district_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `district` varchar(55) NOT NULL,
+  PRIMARY KEY (`shipping_add_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `shipping_address`
+--
+
+INSERT INTO `shipping_address` (`shipping_add_id`, `street_number`, `address_line1`, `address_line2`, `postal_code`, `district`) VALUES
+(1, '23', 'Lane1 ', 'Lane 3', '10400', 'Colombo'),
+(5, '45/1', 'Rawathwaththa', 'Moratuwa', '10400', 'Colombo'),
+(6, '30', 'Nuwara lane', 'Kururnegala', '85391', 'Kururnegala'),
+(7, '30', 'Nuwara lane', 'Kururnegala', '85391', 'Kururnegala'),
+(10, '45/1', 'Nuwara lane', 'Kururnegala', '85391', 'Colombo'),
+(11, '45/1', 'Rawathwaththa', 'Moratuwa', '10400', 'Colombo'),
+(12, '50', 'Lakshapathiya', 'Moratuwa', '10400', 'Colombo');
 
 -- --------------------------------------------------------
 
@@ -378,7 +434,16 @@ CREATE TABLE IF NOT EXISTS `shopping_cart` (
   `product_master_id` int(11) NOT NULL,
   PRIMARY KEY (`shopping_cart_id`),
   KEY `fk_shopping_cart_product_master1_idx` (`product_master_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `shopping_cart`
+--
+
+INSERT INTO `shopping_cart` (`shopping_cart_id`, `qty`, `product_master_id`) VALUES
+(16, 1, 7),
+(17, 1, 7),
+(18, 1, 7);
 
 -- --------------------------------------------------------
 
@@ -396,14 +461,15 @@ CREATE TABLE IF NOT EXISTS `user` (
   `password` varchar(100) NOT NULL,
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `email_UNIQUE` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`user_id`, `first_name`, `last_name`, `email`, `phone_number`, `password`) VALUES
-(1, 'Yesh', 'Adithya', 'yesh@gmail.com', '0766901343', '2ecf97aca8b441b323b133d8fc061845');
+(1, 'Yesh', 'Adithya', 'yesh@gmail.com', '0766901343', '2ecf97aca8b441b323b133d8fc061845'),
+(2, 'Nishan', 'Fernando', 'nishan@gmail.com', '0766901343', '2ecf97aca8b441b323b133d8fc061845');
 
 -- --------------------------------------------------------
 
@@ -415,7 +481,6 @@ DROP TABLE IF EXISTS `user_has_shipping_address`;
 CREATE TABLE IF NOT EXISTS `user_has_shipping_address` (
   `user_id` int(11) NOT NULL,
   `address_id` int(11) NOT NULL,
-  `is_default` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`user_id`,`address_id`),
   KEY `fk_user_has_address_address1_idx` (`address_id`),
   KEY `fk_user_has_address_user1_idx` (`user_id`)
@@ -512,7 +577,7 @@ INSERT INTO `variation_option` (`variant_option_id`, `variation_id`, `value`) VA
 (7, 8, 'white,yellow,green,black'),
 (8, 4, 'green,white'),
 (9, 7, 'green,white,black'),
-(10, 12, 'xsm,sm,l,xl');
+(10, 12, 'xsm,sm,l');
 
 --
 -- Constraints for dumped tables
@@ -544,8 +609,7 @@ ALTER TABLE `feedback`
 ALTER TABLE `order_details`
   ADD CONSTRAINT `fk_purchase_details_order_status1` FOREIGN KEY (`order_status_id`) REFERENCES `order_status` (`order_status_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_purchase_details_shipping_address1` FOREIGN KEY (`shipping_address_id`) REFERENCES `shipping_address` (`shipping_add_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_purchase_details_user1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_purchase_details_user_payment_method1` FOREIGN KEY (`user_payment_method_id`) REFERENCES `user_payment_method` (`user_payment_method_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_purchase_details_user1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `product_details`
@@ -565,13 +629,6 @@ ALTER TABLE `product_master`
 ALTER TABLE `product_master_has_variation_option`
   ADD CONSTRAINT `fk_product_master_has_variation_option_variation_option1` FOREIGN KEY (`variation_option_id`) REFERENCES `variation_option` (`variant_option_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `product_master_has_variation_option_ibfk_1` FOREIGN KEY (`product_master_id`) REFERENCES `product_master` (`product_master_id`);
-
---
--- Constraints for table `shipping_address`
---
-ALTER TABLE `shipping_address`
-  ADD CONSTRAINT `fk_address_district1` FOREIGN KEY (`district_id`) REFERENCES `district` (`district_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_address_province1` FOREIGN KEY (`province_id`) REFERENCES `province` (`province_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `shopping_cart`

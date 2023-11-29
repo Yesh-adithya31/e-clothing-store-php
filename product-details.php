@@ -53,47 +53,22 @@
                             <h3 id="price"></h3>
                             <p id="description"></p>
                             <div class="product__details__option">
+
                                 <div class="product__details__option__size">
-                                    <span>Size:</span>
-                                    <label for="xxl">xxl
-                                        <input type="radio" id="xxl">
-                                    </label>
-                                    <label class="active" for="xl">xl
-                                        <input type="radio" id="xl">
-                                    </label>
-                                    <label for="l">l
-                                        <input type="radio" id="l">
-                                    </label>
-                                    <label for="sm">s
-                                        <input type="radio" id="sm">
-                                    </label>
-                                </div>
-                                <div class="product__details__option__color">
-                                    <span>Color:</span>
-                                    <label class="c-1" for="sp-1">
-                                        <input type="radio" id="sp-1">
-                                    </label>
-                                    <label class="c-2" for="sp-2">
-                                        <input type="radio" id="sp-2">
-                                    </label>
-                                    <label class="c-3" for="sp-3">
-                                        <input type="radio" id="sp-3">
-                                    </label>
-                                    <label class="c-4" for="sp-4">
-                                        <input type="radio" id="sp-4">
-                                    </label>
-                                    <label class="c-9" for="sp-9">
-                                        <input type="radio" id="sp-9">
-                                    </label>
+                                    <span id="variantName"></span>
+                                    <div class="btn-group" data-toggle="buttons" id="sizeContainer">
+                                        <!-- Your generated radio buttons will be appended here -->
+                                    </div>
                                 </div>
                             </div>
                             <div class="product__details__cart__option">
                                 <div class="quantity">
                                     <div class="pro-qty">
-                                        <input type="text" value="1">
+                                        <input type="number" id="qty" min="1" value="1">
                                     </div>
                                 </div>
-                                <a href="#" class="primary-btn">add to cart</a>
+                                <a id="addtocartID" class="primary-btn text-light" style="cursor:pointer;">add to cart</a>
+                                <input type="hidden" id="product_master_id" name="product_master_id" />
                             </div>
                             <div class="product__details__last__option">
                                 <ul>
@@ -111,28 +86,16 @@
                                 <li class="nav-item">
                                     <a class="nav-link active" data-toggle="tab" href="#tabs-5" role="tab">Description</a>
                                 </li>
-                                <!-- <li class="nav-item">
-                                    <a class="nav-link" data-toggle="tab" href="#tabs-6" role="tab">Customer
-                                        Previews(5)</a>
-                                </li> -->
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane active" id="tabs-5" role="tabpanel">
                                     <div class="product__details__tab__content">
                                         <div class="product__details__tab__content__item">
                                             <h5>Products Infomation</h5>
-                                            <p></p>
+                                            <p id="description2"></p>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- <div class="tab-pane" id="tabs-6" role="tabpanel">
-                                    <div class="product__details__tab__content">
-                                        <div class="product__details__tab__content__item">
-                                            <h5>Products Infomation</h5>
-                                            <p></p>
-                                        </div>
-                                    </div>
-                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -150,145 +113,7 @@
                     <h3 class="related-title">Related Product</h3>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/product/product-1.jpg">
-                            <span class="label">New</span>
-                            <ul class="product__hover">
-                                <li><a href="#"><img src="img/icon/heart.png" alt=""></a></li>
-                                <li><a href="#"><img src="img/icon/compare.png" alt=""> <span>Compare</span></a></li>
-                                <li><a href="#"><img src="img/icon/search.png" alt=""></a></li>
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <h6>Piqué Biker Jacket</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
-                            <div class="rating">
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                            </div>
-                            <h5>$67.24</h5>
-                            <div class="product__color__select">
-                                <label for="pc-1">
-                                    <input type="radio" id="pc-1">
-                                </label>
-                                <label class="active black" for="pc-2">
-                                    <input type="radio" id="pc-2">
-                                </label>
-                                <label class="grey" for="pc-3">
-                                    <input type="radio" id="pc-3">
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/product/product-2.jpg">
-                            <ul class="product__hover">
-                                <li><a href="#"><img src="img/icon/heart.png" alt=""></a></li>
-                                <li><a href="#"><img src="img/icon/compare.png" alt=""> <span>Compare</span></a></li>
-                                <li><a href="#"><img src="img/icon/search.png" alt=""></a></li>
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <h6>Piqué Biker Jacket</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
-                            <div class="rating">
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                            </div>
-                            <h5>$67.24</h5>
-                            <div class="product__color__select">
-                                <label for="pc-4">
-                                    <input type="radio" id="pc-4">
-                                </label>
-                                <label class="active black" for="pc-5">
-                                    <input type="radio" id="pc-5">
-                                </label>
-                                <label class="grey" for="pc-6">
-                                    <input type="radio" id="pc-6">
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-sm-6">
-                    <div class="product__item sale">
-                        <div class="product__item__pic set-bg" data-setbg="img/product/product-3.jpg">
-                            <span class="label">Sale</span>
-                            <ul class="product__hover">
-                                <li><a href="#"><img src="img/icon/heart.png" alt=""></a></li>
-                                <li><a href="#"><img src="img/icon/compare.png" alt=""> <span>Compare</span></a></li>
-                                <li><a href="#"><img src="img/icon/search.png" alt=""></a></li>
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <h6>Multi-pocket Chest Bag</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
-                            <div class="rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-o"></i>
-                            </div>
-                            <h5>$43.48</h5>
-                            <div class="product__color__select">
-                                <label for="pc-7">
-                                    <input type="radio" id="pc-7">
-                                </label>
-                                <label class="active black" for="pc-8">
-                                    <input type="radio" id="pc-8">
-                                </label>
-                                <label class="grey" for="pc-9">
-                                    <input type="radio" id="pc-9">
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/product/product-4.jpg">
-                            <ul class="product__hover">
-                                <li><a href="#"><img src="img/icon/heart.png" alt=""></a></li>
-                                <li><a href="#"><img src="img/icon/compare.png" alt=""> <span>Compare</span></a></li>
-                                <li><a href="#"><img src="img/icon/search.png" alt=""></a></li>
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <h6>Diagonal Textured Cap</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
-                            <div class="rating">
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                            </div>
-                            <h5>$60.9</h5>
-                            <div class="product__color__select">
-                                <label for="pc-10">
-                                    <input type="radio" id="pc-10">
-                                </label>
-                                <label class="active black" for="pc-11">
-                                    <input type="radio" id="pc-11">
-                                </label>
-                                <label class="grey" for="pc-12">
-                                    <input type="radio" id="pc-12">
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div id="productsContainer" class="row">
             </div>
         </div>
     </section>
@@ -299,15 +124,18 @@
 
     <?php include('template/jslinks.php'); ?>
     <script>
-        function getUrlParameter(name) {
-            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-            var results = regex.exec(location.search);
-            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
-        }
+
+        var user = <?php if (isset($_SESSION["user"])) {
+                        echo $_SESSION["user"];
+                    } else {
+                        echo "00";
+                    } ?>;
 
         $(document).ready(function() {
             var id = getUrlParameter('id');
+            $('#addtocartID').click(function() {
+                addToCart(id,$('#qty').val());
+            });
             $.ajax({
                 url: 'includes/productGetOne.php', // Replace with your delete API endpoint
                 type: 'POST',
@@ -317,17 +145,48 @@
                 success: function(data) {
                     // Parse the JSON response
                     var response = JSON.parse(data);
-                    console.log(response);
-                    $('#imageURL').attr('src', 'uploads/'+response[0].product_image);
+
+                    $('#imageURL').attr('src', 'uploads/' + response[0].product_image);
                     $('#productName').text(response[0].product_name);
                     $('#price').text(`LKR ${response[0].price}.00`);
                     $('#description').text(response[0].description);
+                    $('#description2').text(response[0].description);
                     $('#SKU').text(`SKU: ${response[0].SKU}`);
                     $('#categoryName').text(`Category: ${response[0].category_name}`);
+                    $('#variantName').text(`${response[0].name}: `);
 
-                    $('#variantName').text(response[0].name);
-                    $('#variantOptName').text(response[0].value);
-                    $('#qty').text(response[0].qty_in_stock);
+                    // Calling Products related details
+                    getCategoryRelatedProducts(response[0].category_id);
+
+                    var sizes = [];
+                    sizes = response[0].value.split(',');
+                    // Target the container where the radio buttons will be added
+                    var sizeContainer = $('#sizeContainer');
+
+                    // Loop through the sizes array to create radio buttons
+                    sizes.forEach(function(size, index) {
+                        // Create the label and input elements for each size
+                        var label = $('<label>').addClass('btn btn-light').text(size);
+                        var input = $('<input>').attr({
+                            type: 'radio',
+                            name: 'size',
+                            id: 'size' + index,
+                            autocomplete: 'off'
+                        }).val(size);
+
+                        // Check the first radio button
+                        if (index === 0) {
+                            label.addClass('active');
+                            input.prop('checked', true);
+                        }
+
+                        // Append the input inside the label
+                        label.append(input);
+
+                        // Append the label to the size container
+                        sizeContainer.append(label);
+                    });
+                    $('#qty').attr('max', response[0].qty_in_stock);
                 },
                 error: function(error) {
                     // Handle error
@@ -338,7 +197,27 @@
                     });
                 }
             });
+
+            // // Event listener for click on radio buttons
+            // $('#getValueBtn').on('click', function() {
+            //     // Get the value of the selected radio button
+            //     var selectedSize = $('input[name="size"]:checked').val();
+
+            //     // Check if a size is selected
+            //     if (selectedSize) {
+            //         // Output the selected value (you can replace this with your desired logic)
+            //         console.log('Selected Size:', selectedSize);
+            //     } else {
+            //         console.log('Please select a size.');
+            //     }
+            // });
         });
+
+        function selectedOptions(size) {
+            var selectedID = size.id;
+            console.log(selectedID)
+            $('#selectedID').addClass('active');
+        }
     </script>
 </body>
 

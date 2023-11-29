@@ -9,6 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $productMasterID =  $_POST['productMasterID'];
     $userID =  $_POST['userID'];
+    $qty = $_POST['qty'];
 
     try {
         $stmt = $conn->prepare("SELECT * FROM user_has_shopping_cart WHERE user_id = :userid AND shopping_cart_id IN (SELECT shopping_cart_id FROM shopping_cart WHERE product_master_id = :masterid)");
@@ -20,8 +21,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'message' => 'Product already exists in the cart!',
             ];
         } else {
-            $stmt = $conn->prepare("INSERT INTO shopping_cart(qty, product_master_id) VALUES(1,:master_id)");
-            $stmt->execute(['master_id' => $productMasterID]);
+            $stmt = $conn->prepare("INSERT INTO shopping_cart(qty, product_master_id) VALUES(:qty,:master_id)");
+            $stmt->execute(['qty' => $qty,'master_id' => $productMasterID]);
             $cartID = $conn->lastInsertId();
     
             if ($cartID) {
